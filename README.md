@@ -1,9 +1,9 @@
 # Discord Pinner
 
 Discord Pinner is a proxy to a Discord webhook that also pins the message. You can use it
-in-place of a normal Discord webhook if you need the posted message to be pinned.
+in-place of a normal Discord webhook if you need the posted message to be pinned. 
 
-Use the following query parameters:
+The webhook URL is `https://discpin.auburn.dev/exec`, then use the following query parameters:
 
  - `url`: The original Discord webhook
  - `token`: An _encrypted_ bot token with Pin Messages, View Channels, and Read Message History
