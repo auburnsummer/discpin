@@ -211,7 +211,31 @@ func exec(w http.ResponseWriter, r *http.Request) {
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to Discpin! Use /pubkey to get the public key and /exec to execute a command.")
+	// just send the README.md as the home page
+	fileContent, err := os.ReadFile("README.md")
+	if err != nil {
+		http.Error(w, "Failed to read README.md", http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "text/html")
+	w.Write([]byte(`
+	<!DOCTYPE html>
+	<html>
+		<head>
+		<title>Discord Pinner</title>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script>
+	</head>
+	<body>
+	<zero-md>
+		<script type="text/markdown">
+`))
+	w.Write(fileContent)
+	w.Write([]byte(`
+		</script>
+	</zero-md>
+	</body>
+	</html>
+	`))
 }
 
 func main() {
