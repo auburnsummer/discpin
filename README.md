@@ -10,7 +10,7 @@ Use the following query parameters:
    - These are the only three scopes needed. If you will never use `remove_previous` you can get away
      with only Pin Messages
    - See below section for how to produce the encrypted token
- - `remove_previous`: If true (remove_previous=true), it will delete the previously pinned message
+ - `remove_previous`: If true (remove_previous=true), it will unpin the previously pinned message
    from the same webhook.
 
 ## How to encrypt the token
